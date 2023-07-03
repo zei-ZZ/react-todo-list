@@ -17,10 +17,11 @@ export default function App() {
   }, [todos]);
 
   function addTodo(title) {
+    if (title.trim() == "") return;
     setTodos((prev) => {
       return [
         ...prev,
-        { id: crypto.randomUUID(), title: title, completed: false },
+        { id: crypto.randomUUID(), title: title.trim(), completed: false },
       ];
     });
   }
